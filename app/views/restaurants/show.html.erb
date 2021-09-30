@@ -1,0 +1,17 @@
+<div class="fs-2 text-center">Details of the Restaurant</div>
+<div class="fs-4">
+    <p>Name: <%= @restaurant.name %></p>
+    <p>Address: <%= @restaurant.address %></p> 
+    <p>Category: <%= @restaurant.category %></p>
+</div>
+<div class="fs-2 text-center">Reviews</div>
+  <div class="fs-5">
+    <% @restaurant.reviews.each do |review| %>
+        <p>Comment:<%= review.content %> Rating:<%= review.rating %></p>
+        <hr>
+    <% end %>
+  </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary"><%= link_to "Add Review", new_restaurant_review_path(@restaurant) %></button>
+      <button type="button" class="btn btn-primary"><%= link_to "Back to List", restaurants_path %></button>
+</div>
